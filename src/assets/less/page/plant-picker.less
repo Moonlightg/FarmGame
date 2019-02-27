@@ -1,0 +1,70 @@
+.plant-picker {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: rgba(255, 255, 255, .8);
+    .info {
+        text-align: left;
+    }
+    .plant {
+        width: auto;
+        height: 60%;
+    }
+    @keyframes activePlant {
+        0% {
+            top: -10%;
+            left: -10%;
+        }
+        50% {
+            top: -10%;
+            left: -10%;
+        }
+        70% {
+            top: 110%;
+            left: 110%;
+        }
+        100% {
+            top: 110%;
+            left: 110%;
+        }
+    }
+}
+.plant-list {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.plant-item {
+    height: 100%;
+    width: 70px;
+    padding: 0 5px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 14px;
+    &.active {
+        background-color: #00b4a9;
+        color: #fff;
+        &:after {
+            content: "";
+            top: 0;
+            left:0;
+            width: 8%;
+            height: 200%;
+            background-color: rgba(255, 255, 255, .7);
+            position: absolute;
+            transform: rotate(45deg) translate(-800%, -50%);
+            animation: activePlant 3s linear infinite;
+        }
+    }
+}

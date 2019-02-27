@@ -1,0 +1,76 @@
+
+/*
+ * user.less
+ * v1.0 MIT License
+ * Copyright (c) 2018.8.9 Moonlight
+ *
+*/
+
+//默认头像规格
+.user-w (@w:40px) {
+    width: @w;
+    height: @w;
+    font-size: @w / 2.8;
+    border-radius: @w;
+}
+//默认头像
+.user {
+    .user-w();
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+    font-weight: 400;
+    margin: 0 10px 0 0;
+    flex-shrink: 0;
+    &.user-img{
+        background: none;
+    }
+    img{ 
+        display: block;
+        width: 100%;
+    }
+}
+
+//小号头像
+.user_s{
+    .user-w (@user_s);
+}
+
+//中号头像
+.user_m{
+    .user-w (@user_m);
+}
+
+//大号头像
+.user_l{
+    .user-w (@user_l);
+}
+
+//加大号头像
+.user_xl{
+    .user-w (@user_xl);
+}
+.user-box{
+	display: flex;
+    align-items: center;
+	position: fixed;
+	top: 0;
+	right: 10px;
+	height: 10vh;   
+}
+.user-text{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p{
+    	padding: 3px 0;
+    	font-size: 12px;
+    }
+}
+.gold{
+	color: #fffe43;
+	span{
+		margin-right:5px;
+		color: red;
+	}
+}

@@ -1,0 +1,44 @@
+.upgrades-list{
+    background: #303b71;
+    li{
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: @margin;
+        &:before{
+            position: absolute;
+            content: "";
+            height: 1px;
+            left: @margin;
+            right: @margin;
+            bottom: 0;
+            background: #3c4884;
+        }
+    }
+}
+.plant-img{
+    width: 4rem;
+    height: 4rem;
+    margin-right: @margin;
+    img{
+        display: block;
+        width: 100%;
+    }
+    span{
+        position: absolute;
+        top: 50%;
+        height: 1.6rem;
+        line-height: 1.6rem;
+        margin-top: -.8rem;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.5);
+        width: 4rem;
+        text-align: center;
+        border-radius: 3px;
+        font-size: .75rem;
+    }
+}
+.plant-text{
+    font-size: .875rem;
+    color: #fff;
+}
