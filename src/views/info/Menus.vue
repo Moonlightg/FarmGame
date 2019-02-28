@@ -3,31 +3,48 @@
     <div class="menus">
       <ul class="menus-list">
         <li @click="showUnlock">解锁植物</li>
+        <li @click="showAddLand">添加土地</li>
       </ul>
     </div>
     <popup v-model="unlock" position="bottom" max-height="60%">
       <Upgrades></Upgrades>
     </popup>
+    <confirm v-model="inConfirm"
+      title="确定解锁吗？"
+      @on-confirm="addLand">
+      <p style="text-align:center;">需要{{potsPrice | money}}</p>
+    </confirm>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Upgrades from '@/views/info/Upgrades'
 export default {
   data () {
     return {
-      unlock: false
+      unlock: false,
+      inConfirm: false
     }
   },
   methods: {
     showUnlock: function () {
       this.unlock = !this.unlock
+    },
+    showAddLand: function () {
+      this.inConfirm = !this.inConfirm
+    },
+    addLand: function () {
+      if (this.user.money - this.potsPrice >= 0) {
+        this.$store.commit('addPlantPot')
+      } else {
+        this.$vux.toast.text('你不够钱增收土地', 'top')
+      }
     }
   },
   components: {
     Upgrades
   },
-  computed: {
-  }
+  computed: mapState(['potsPrice', 'user'])
 }
 </script>

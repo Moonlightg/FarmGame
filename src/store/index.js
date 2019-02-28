@@ -19,6 +19,8 @@ const state = {
   pots: [{
     type: 'normal'
   }],
+  // 土地价格
+  potsPrice: 1,
   // 当前选中的植物
   currPlant: {},
   effects: 2

@@ -6,8 +6,9 @@ import router from './router'
 import store from './store' // 引入 store
 import PlantImage from './components/PlantImage' // 全局的植物图片组件
 import { formatMoney } from '@/util' // 金额过滤器
-import { Popup, ToastPlugin } from 'vux'
+import { Popup, ToastPlugin, Confirm } from 'vux'
 Vue.component('popup', Popup)
+Vue.component('confirm', Confirm)
 Vue.use(ToastPlugin)
 
 Vue.filter('money', (money = 0) => formatMoney(money))

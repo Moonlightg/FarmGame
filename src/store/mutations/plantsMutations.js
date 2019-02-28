@@ -18,6 +18,18 @@ let plants = {
     state.user.money += payload.plant.profit
     console.log('qian' + this.state.user.money)
     delete payload.plant // 种植完成清除当前种植的植物
+  },
+  // 添加土地
+  addPlantPot (state) {
+    if (state.user.money - state.potsPrice >= 0 && state.pots.length < 10) {
+      state.pots.push({
+        type: 'normal'
+      })
+      // 扣钱
+      this.commit('costMoney', state.potsPrice)
+      // 涨价
+      state.potsPrice *= 10.8
+    }
   }
 }
 
