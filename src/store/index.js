@@ -60,10 +60,28 @@ const mutations = {
   ...plantsMutatuins,
   // 存档
   save (state) {
+    let pots = state.pots.map(obj => {
+      return {
+        type: obj.type
+      }
+    })
+    let plants = state.plants.filter(obj => obj.state !== 2).map(obj => {
+      return {
+        id: obj.id,
+        speed: obj.speed,
+        cost: obj.cost,
+        profit: obj.profit,
+        state: obj.state,
+        totalGrown: obj.totalGrown
+      }
+    })
     let user = JSON.parse(JSON.stringify(state.user))
     let data = {
       user,
-      landType: state.landType
+      plants,
+      pots,
+      landType: state.landType,
+      effects: state.effects
     }
     localStorage.setItem('farmData2', JSON.stringify(data))
   },
@@ -71,8 +89,21 @@ const mutations = {
   load (state) {
     let data = JSON.parse(localStorage.getItem('farmData2'))
     if (!data) return
+    state.plants.filter(obj => obj.state !== 2).forEach(objPlant => {
+      data.plants.forEach(newPlant => {
+        if (objPlant.id === newPlant.id) {
+          objPlant.speed = newPlant.speed
+          objPlant.cost = newPlant.cost
+          objPlant.profit = newPlant.profit
+          objPlant.state = newPlant.state
+          objPlant.totalGrown = newPlant.totalGrown
+        }
+      })
+    })
+    state.pots = data.pots
     state.user = data.user
     state.landType = data.landType
+    state.effects = data.effects
   }
 }
 const store = new Vuex.Store({
