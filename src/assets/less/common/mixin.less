@@ -1,0 +1,9 @@
+.jpg-image(@jpg_url){
+  	background-image: url('../../images/@{jpg_url}.jpg');
+}
+.png-image(@png_url){
+  	background-image: url('../images/@{png_url}.png');
+}
+.png-bg(@bg_color, @bg_url, @bg_repeat){
+	background: @bg_color url('../images/@{bg_url}.png') @bg_repeat;
+}

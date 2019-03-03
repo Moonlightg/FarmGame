@@ -29,6 +29,7 @@ let plants = {
       this.commit('costMoney', state.potsPrice)
       // 涨价
       state.potsPrice *= 10.8
+      state.potsPrice = parseInt(state.potsPrice)
     }
   }
 }
