@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     url () {
-      return '/static/images/user.jpeg'
+      return 'static/images/user.jpeg'
     },
     ...mapState({
       user: state => state.user

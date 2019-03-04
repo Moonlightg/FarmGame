@@ -10,7 +10,7 @@ export default {
   },
   computed: {
     url () {
-      return '/static/images/'
+      return 'static/images/'
     }
   }
 }
