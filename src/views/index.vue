@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-wrap">
     <Startup></Startup>
     <User></User>
     <Garden></Garden>

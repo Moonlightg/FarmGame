@@ -2,8 +2,8 @@
   <div>
     <div class="menus">
       <ul class="menus-list">
-        <li @click="showUnlock">解锁植物</li>
-        <li @click="showAddLand">添加土地</li>
+        <li @click="showUnlock"><p>解锁植物</p></li>
+        <li @click="showAddLand"><p>添加土地</p></li>
       </ul>
     </div>
     <popup v-model="unlock" position="bottom" max-height="60%">

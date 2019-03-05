@@ -21,6 +21,10 @@ const state = {
   }],
   // 土地价格
   potsPrice: 1,
+  // 音效 SE
+  seVolume: 30,
+  bgmVolume: 50,
+  bgsVolume: 30,
   // 当前选中的植物
   currPlant: {},
   effects: 2
@@ -80,6 +84,9 @@ const mutations = {
       user,
       plants,
       pots,
+      seVolume: state.seVolume,
+      bgmVolume: state.bgmVolume,
+      bgsVolume: state.bgsVolume,
       landType: state.landType,
       effects: state.effects
     }
@@ -102,6 +109,9 @@ const mutations = {
     })
     state.pots = data.pots
     state.user = data.user
+    state.seVolume = data.seVolume
+    state.bgmVolume = data.bgmVolume
+    state.bgsVolume = data.bgsVolume
     state.landType = data.landType
     state.effects = data.effects
   }

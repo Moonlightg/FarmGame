@@ -11,6 +11,7 @@
 <script>
 import { mapState } from 'vuex'
 import { formatMoney } from '@/util'
+import audio from '@/audio'
 import ProgressBar from '@/components/Progress'
 export default {
   components: {
@@ -36,6 +37,8 @@ export default {
       this.inGrowUp = true
       // 计算种植速度
       let speed = plant.speed
+      // 播放种植音效
+      audio.playSe('grow', this.seVolume / 100)
       // 设置进度条
       this.value = 0
       let delay = 2
@@ -78,6 +81,6 @@ export default {
       }, 500)
     }
   },
-  computed: mapState(['user', 'currPlant', 'effects'])
+  computed: mapState(['user', 'seVolume', 'currPlant', 'effects'])
 }
 </script>
