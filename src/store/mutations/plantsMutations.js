@@ -21,15 +21,34 @@ let plants = {
   },
   // 添加土地
   addPlantPot (state) {
-    if (state.user.money - state.potsPrice >= 0 && state.pots.length < 10) {
+    if (state.user.money - state.potsPrice >= 0 && state.pots.length < 15) {
       state.pots.push({
-        type: 'normal'
+        type: 'normal',
+        level: 1
       })
       // 扣钱
       this.commit('costMoney', state.potsPrice)
       // 涨价
-      state.potsPrice *= 10.8
+      state.potsPrice *= 2
       state.potsPrice = parseInt(state.potsPrice)
+    }
+  },
+  // 升级为黄金土地
+  addLandLevel (state) {
+    if (state.user.money - state.potsPriceGolden >= 0) {
+      for (let i = 0; i < state.pots.length; i++) {
+        if (state.pots[i].level === 1) {
+          state.pots[i].level = 2
+          // 扣钱
+          this.commit('costMoney', state.potsPriceGolden)
+          // 涨价
+          state.potsPriceGolden *= 2
+          state.potsPriceGolden = parseInt(state.potsPriceGolden)
+          console.log(state.potsPriceGolden)
+          console.log(state.pots)
+          return false
+        }
+      }
     }
   }
 }

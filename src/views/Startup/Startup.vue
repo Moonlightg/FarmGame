@@ -2,10 +2,10 @@
   <div class="startup-box" v-if="landType==0">
     <div v-show="isShow">
       <h1>开心农场</h1>
-      <a href="javascript:;" @click="showToggle">开始游戏</a>
+      <a href="javascript:;" class="gobtn" @click="showToggle">开始游戏</a>
     </div>
-    <div v-show="!isShow">
-      <input type="text" name="username" :value="username" class="username">
+    <div class="new-user" v-show="!isShow">
+      <input type="text" name="username" :value="username" class="username"/>
       <a href="javascript:;" class="gobtn" @click="foundRole">创建角色</a>
     </div>
   </div>
@@ -57,6 +57,7 @@ export default {
     align-items: center;
     flex-direction: column;
     z-index: 999;
+    overflow: hidden;
   }
   h1{
     font-size: 3rem;

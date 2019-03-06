@@ -1,5 +1,5 @@
 <template>
-  <div class="plantpot" @click="onPlantpotMouseDown" ref="paper">
+  <div class="plantpot" @click="onPlantpotMouseDown" ref="paper" :class="postLevelGolden">
     <div v-show="value > 0">
       <ProgressBar :value="value"></ProgressBar>
       <PlantImage :src="pot.plant.image" v-if="pot.plant && effects > 0"></PlantImage>
@@ -81,6 +81,13 @@ export default {
       }, 500)
     }
   },
-  computed: mapState(['user', 'seVolume', 'currPlant', 'effects'])
+  computed: {
+    ...mapState(['user', 'seVolume', 'currPlant', 'effects']),
+    postLevelGolden: function () {
+      return {
+        golden: this.pot.level === 2
+      }
+    }
+  }
 }
 </script>

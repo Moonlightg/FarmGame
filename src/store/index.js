@@ -17,10 +17,13 @@ const state = {
   plants: plantsState,
   // 花盆列表
   pots: [{
-    type: 'normal'
+    type: 'normal',
+    level: 1
   }],
   // 土地价格
   potsPrice: 1,
+  // 黄金土地价格
+  potsPriceGolden: 2000,
   // 音效 SE
   seVolume: 30,
   bgmVolume: 50,
@@ -66,7 +69,8 @@ const mutations = {
   save (state) {
     let pots = state.pots.map(obj => {
       return {
-        type: obj.type
+        type: obj.type,
+        level: obj.level
       }
     })
     let plants = state.plants.filter(obj => obj.state !== 2).map(obj => {
