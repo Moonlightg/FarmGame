@@ -5,7 +5,9 @@
       <a href="javascript:;" class="gobtn" @click="showToggle">开始游戏</a>
     </div>
     <div class="new-user" v-show="!isShow">
-      <input type="text" name="username" :value="username" class="username"/>
+      <group>
+        <x-input name="username" v-model="name" class="username"></x-input>
+      </group>
       <a href="javascript:;" class="gobtn" @click="foundRole">创建角色</a>
     </div>
   </div>
@@ -13,11 +15,17 @@
 
 <script>
 import { mapState } from 'vuex'
+import { XInput, Group } from 'vux'
 export default {
   data () {
     return {
-      isShow: true
+      isShow: true,
+      name: '努力奋斗'
     }
+  },
+  components: {
+    XInput,
+    Group
   },
   computed: {
     ...mapState({
@@ -33,13 +41,12 @@ export default {
     foundRole () {
       // 同时改变状态为登陆状态landType=1
       let landType = 1
-      let role = document.getElementsByClassName('username')[0].value
+      let userName = this.name
       this.$store.commit('newRole', {
         landType,
-        role
+        userName
       })
       this.$store.commit('save')
-      console.log('创建角色后存档成功')
     }
   }
 }

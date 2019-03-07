@@ -11,7 +11,7 @@ const state = {
   // 角色
   user: {
     name: '张三',
-    money: 2000
+    money: 20000
   },
   // 植物列表
   plants: plantsState,
@@ -45,7 +45,7 @@ const getters = {
 const mutations = {
   // 创建角色
   newRole (state, role) {
-    state.user.name = role.role
+    state.user.name = role.userName
     state.landType = role.landType
   },
   // 扣去金额
@@ -88,6 +88,8 @@ const mutations = {
       user,
       plants,
       pots,
+      potsPrice: state.potsPrice,
+      potsPriceGolden: state.potsPriceGolden,
       seVolume: state.seVolume,
       bgmVolume: state.bgmVolume,
       bgsVolume: state.bgsVolume,
@@ -113,6 +115,8 @@ const mutations = {
     })
     state.pots = data.pots
     state.user = data.user
+    state.potsPrice = data.potsPrice
+    state.potsPriceGolden = data.potsPriceGolden
     state.seVolume = data.seVolume
     state.bgmVolume = data.bgmVolume
     state.bgsVolume = data.bgsVolume

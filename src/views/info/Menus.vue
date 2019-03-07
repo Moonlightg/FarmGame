@@ -49,8 +49,10 @@ export default {
       if (this.pots.length < 15) {
         this.$vux.toast.text('先购买15块土地', 'top')
         return false
-      } else {
+      } else if (this.user.money - this.potsPriceGolden >= 0) {
         this.inLevel = !this.inLevel
+      } else {
+        this.$vux.toast.text('不够钱升级，种菜吧', 'top')
       }
     },
     addLand: function () {
@@ -61,7 +63,6 @@ export default {
       }
     },
     landLevel: function () {
-      console.log(this.pots.length)
       this.$store.commit('addLandLevel')
     }
   },

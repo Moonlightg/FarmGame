@@ -5,30 +5,30 @@ export default new Vue({
     return {
       se: [{
         name: 'grow',
-        src: '/static/audio/grow.wav'
+        src: 'static/audio/mgrow.mp3'
       }, {
         name: 'break',
-        src: '/static/audio/break.ogg'
+        src: 'static/audio/break.ogg'
       }, {
         name: 'cant',
-        src: '/static/audio/cant.ogg'
+        src: 'static/audio/cant.ogg'
       }, {
         name: 'coin',
-        src: '/static/audio/coin.ogg'
+        src: 'static/audio/coin.ogg'
       }, {
         name: 'pot',
-        src: '/static/audio/pot.wav'
+        src: 'static/audio/mpot.mp3'
       }],
       bgm: [{
         name: 'town',
-        src: '/static/audio/town.ogg'
+        src: 'static/audio/town.ogg'
       }],
       bgs: [{
         name: 'rain',
-        src: '/static/audio/rain.wav'
+        src: 'static/audio/mrain.mp3'
       }, {
         name: 'wind',
-        src: '/static/audio/wind.ogg'
+        src: 'static/audio/wind.ogg'
       }]
     }
   },

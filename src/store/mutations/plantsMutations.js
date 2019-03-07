@@ -15,8 +15,12 @@ let plants = {
   },
   // 收获植物
   getPlant (state, payload) {
-    state.user.money += payload.plant.profit
-    console.log('qian' + this.state.user.money)
+    // 判断是否为金色土地，如果是收益+20%
+    if (payload.level === 2) {
+      state.user.money += payload.plant.profit * 1.2
+    } else {
+      state.user.money += payload.plant.profit
+    }
     delete payload.plant // 种植完成清除当前种植的植物
   },
   // 添加土地

@@ -34,9 +34,18 @@ export default {
         this.$store.commit('setPlant', this.pot)
       }
       let plant = this.pot.plant
+      let speedMultiple = this.pot.level
       this.inGrowUp = true
-      // 计算种植速度
-      let speed = plant.speed
+      // 计算种植速度,如果speedMultiple == 2为金色土地，速度+20%,利润+20
+      let speed
+      let profit
+      if (speedMultiple === 2) {
+        speed = plant.speed * 0.8
+        profit = plant.profit * 1.2
+      } else {
+        speed = plant.speed
+        profit = plant.profit
+      }
       // 播放种植音效
       audio.playSe('grow', this.seVolume / 100)
       // 设置进度条
@@ -57,7 +66,7 @@ export default {
           clearInterval(this.timer)
           this.inGrowUp = false
           // 弹出金钱
-          this.popMoney(plant.profit)
+          this.popMoney(profit)
           // 收获植物
           this.$store.commit('getPlant', this.pot)
           // 清空进度条
