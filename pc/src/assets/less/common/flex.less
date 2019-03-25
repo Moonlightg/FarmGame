@@ -1,0 +1,82 @@
+/*
+ * flex.less
+ * v1.0 MIT License
+ * Copyright (c) 2018.8.9 Moonlight
+ *
+*/
+
+// flex 布局
+.flex-wrap_wrap{flex-wrap:wrap;}
+.display {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.box_orient{
+  /* UC 浏览器 使用flex-direction: column;的时候需要加上*/
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+
+.flex_direction(@direction: row) {
+  -webkit-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.flex(@value: 1) {
+  -webkit-box-flex: @value;
+  -webkit-flex: @value @value auto;
+  flex: @value @value auto;
+}
+
+.flex_initial(@value: initial) {
+  -webkit-box-flex: @value;
+  -webkit-flex: @value;
+  flex: @value;
+}
+
+.align_items_center {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.align_items(@content) {
+  -webkit-align-items: ~'flex-@{content}';
+  align-items: ~'flex-@{content}';
+}
+
+.justify_content_center {
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.justify_content(@content) {
+  -webkit-justify-content: ~'flex-@{content}';
+  justify-content: ~'flex-@{content}';
+}
+
+.justify_content_space_between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.flex_flow {
+  flex-flow: wrap;
+}
+
+// flex-start | flex-end | center | space-between | space-around | stretch
+.align-content(@align: stretch) {
+  -webkit-align-content: @align;
+  align-content: @align;
+}
+
+// auto | flex-start | flex-end | center | baseline | stretch
+.align_self(@align: auto) {
+  -webkit-align-self: @align;
+  align-self: @align;
+}
+
+.flex{
+  .display;
+}
